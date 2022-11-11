@@ -1,4 +1,4 @@
-# ToxiProxy with spring boot 
+# ToxiProxy with Spring Boot 
 
 This project is used to demonstrate the use of [Toxiproxy](https://github.com/Shopify/toxiproxy) to interrupt or add latency to the connection 
 between two systems. 
