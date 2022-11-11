@@ -1,0 +1,9 @@
+spring:
+  #Database Configuration
+  datasource:
+    url: jdbc:mysql://127.0.0.1:13306/database
+    username: user1
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: create
