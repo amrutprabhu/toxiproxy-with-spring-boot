@@ -1,6 +1,6 @@
 # ToxiProxy with spring boot 
 
-This project is used to demonstrate the use of Toxiproxy to interrupt or add latency to the connection 
+This project is used to demonstrate the use of [Toxiproxy](https://github.com/Shopify/toxiproxy) to interrupt or add latency to the connection 
 between two systems. 
 
 Here we have database which is brought up using docker compose, and then we create a proxy to the database.
