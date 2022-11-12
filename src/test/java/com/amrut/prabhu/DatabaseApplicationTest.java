@@ -25,7 +25,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 @Testcontainers
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-class DatabaseApplicationTests {
+class DatabaseApplicationTest {
 
     @Autowired
     private PostRepository postRepository;
@@ -54,16 +54,12 @@ class DatabaseApplicationTests {
 
     @Test
     @Transactional(propagation = Propagation.NOT_SUPPORTED)
-    void checkTimeoutConditionWithDatabase() {
+    void checkTimeoutConditionWithDatabase() throws IOException {
 
         assertThat(postRepository.findAll())
                 .isEmpty();
-        try {
-            dbProxy.toxics()
-                    .timeout("timeout", ToxicDirection.DOWNSTREAM, 1000);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        dbProxy.toxics()
+                .timeout("timeout", ToxicDirection.DOWNSTREAM, 1000);
         assertThatThrownBy(() -> postRepository.findAll())
                 .isInstanceOf(Exception.class);
 

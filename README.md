@@ -25,6 +25,11 @@ toxiproxy-cli create -l localhost:13306 -u localhost:3306 db-proxy
 toxiproxy-cli toxic add -t latency -a latency=1000 db-proxy
 ```
 
+#### View all toxies for a proxy
+
+```shell
+toxiproxy-cli inspect db-proxy 
+```
 #### Remove latency
 ```shell
 toxiproxy-cli toxic remove -n latency_downstream db-proxy
@@ -32,7 +37,7 @@ toxiproxy-cli toxic remove -n latency_downstream db-proxy
 
 #### Alias to run command without installing the cli.
 ```shell
-alias toxiproxy="docker run --rm \
+alias toxiproxy-cli="docker run --rm \
 --net host \
 --entrypoint="/toxiproxy-cli" \
 -it \
